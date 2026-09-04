@@ -1,16 +1,23 @@
 package br.edu.ifsp.biblioteca.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Livro {
     private Long id;
     private String isbn;
     private String titulo;
     private int anoPublicacao;
+    private List<Exemplar> listaDeExemplares;
+    private List<Autor> autores;
 
     public Livro(Long id, String isbn, String titulo, int anoPublicacao) {
         this.id = id;
         this.isbn = isbn;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
+        this.listaDeExemplares = new ArrayList<>();
+        this.autores = new ArrayList<>();
     }
 
     public int getAnoPublicacao () {
@@ -20,6 +27,14 @@ public class Livro {
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
+    public void adicionarExemplar(Exemplar item){
+        this.listaDeExemplares.add(item);
+    }
+
+    public void adicionarAutor(Autor item) {
+        this.autores.add(item);
+    }
+
     public String getTitulo () {
         return this.titulo;
 

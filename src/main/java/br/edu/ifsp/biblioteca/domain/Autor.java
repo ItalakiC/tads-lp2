@@ -4,8 +4,7 @@ public class Autor {
     private Long id;
     private String nome;
 
-    public Autor(Long id, String nome) {
-        this.id = id;
+    public Autor(String nome) {
         this.nome = nome;
     }
 
