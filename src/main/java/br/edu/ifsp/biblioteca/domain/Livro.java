@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Livro {
+
     private Long id;
     private String isbn;
     private String titulo;
-    private int anoPublicacao;
+    private Integer anoPublicacao;
     private List<Exemplar> listaDeExemplares;
     private List<Autor> autores;
 
-    public Livro(Long id, String isbn, String titulo, int anoPublicacao) {
-        this.id = id;
+    public Livro(String isbn, String titulo, Integer anoPublicacao) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
@@ -20,45 +20,44 @@ public class Livro {
         this.autores = new ArrayList<>();
     }
 
-    public int getAnoPublicacao () {
-        return this.anoPublicacao;
+    public Long getId() {
+        return id;
     }
 
-    public void setAnoPublicacao(int anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
-    }
-    public void adicionarExemplar(Exemplar item){
-        this.listaDeExemplares.add(item);
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void adicionarAutor(Autor item) {
-        this.autores.add(item);
-    }
-
-    public String getTitulo () {
-        return this.titulo;
-
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getIsbn () {
-        return this.isbn;
-
+    public String getIsbn() {
+        return isbn;
     }
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public Long getId() {
-            return this.id;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Integer getAnoPublicacao() {
+        return anoPublicacao;
+    }
+
+    public void setAnoPublicacao(Integer anoPublicacao) {
+        this.anoPublicacao = anoPublicacao;
+    }
+
+    public void adicionarExemplar(Exemplar item) {
+        this.listaDeExemplares.add(item);
+    }
+
+    public void adicionarAutor(Autor autor) {
+        this.autores.add(autor);
     }
 
     @Override
