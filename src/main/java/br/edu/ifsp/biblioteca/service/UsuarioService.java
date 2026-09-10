@@ -5,6 +5,7 @@ import br.edu.ifsp.biblioteca.exception.RegraDeNegocioException;
 import br.edu.ifsp.biblioteca.repository.ILivroRepository;
 import br.edu.ifsp.biblioteca.repository.IUsuarioRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class UsuarioService {
@@ -46,6 +47,9 @@ public class UsuarioService {
         if (usuarioOtional.isPresent()) {
             throw new RegraDeNegocioException("Já existe um usuário cadastrado com o e-mail: "+ email);
         }
-        }
+    }
 
+    public List<Usuario> listarTodos(){
+        return this.usuarioRepository.listarTodos();
+    }
 }
