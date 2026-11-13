@@ -34,7 +34,7 @@ public class LivroService {
             throw new RegraDeNegocioException("O Ano de Publicação deve ser maior que 0!");
         }
 
-        Optional<Livro> livroJaCadastradoOptional = this.livroRepository.buscarPorIsbn(livro.getIsbn());
+        Optional<Livro> livroJaCadastradoOptional = this.livroRepository.findByIsbn(livro.getIsbn());
 
         if (livroJaCadastradoOptional.isPresent()) {
             throw new RegraDeNegocioException(
@@ -51,7 +51,7 @@ public class LivroService {
             Livro livro = this.buscarPorId(livroId);
             livro.adicionarExemplar(new Exemplar(codigoDoExemplar, livro));
 
-            return this.livroRepository.salvar(livro);
+            return this.livroRepository.save(livro);
 
     }
 
@@ -60,11 +60,11 @@ public class LivroService {
             Livro livroEncontrado = this.buscarPorId(livroId);
             livroEncontrado.adicionarAutor(new Autor(nomeAutor));
 
-            return this.livroRepository.salvar(livroEncontrado);
+            return this.livroRepository.save(livroEncontrado);
     }
 
     public Livro buscarPorId(Long id) {
-        Optional<Livro> livroOptional = this.livroRepository.buscarPorId(id);
+        Optional<Livro> livroOptional = this.livroRepository.findById(id);
 
         if (livroOptional.isPresent()){
             return livroOptional.get();
@@ -78,6 +78,6 @@ public class LivroService {
     }
 
     public List<Livro> listarTodos() {
-        return this.livroRepository.listarTodos();
+        return this.livroRepository.findAll();
     }
 }
